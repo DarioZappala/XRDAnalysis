@@ -1,7 +1,8 @@
 .DS_Store
 .ipynb_checkpoints/**
 altro/**
-old/**
 databaseEXP/**
+documents/**
 figures/**
+old/**
 results/**
