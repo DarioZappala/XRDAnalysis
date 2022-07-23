@@ -7,3 +7,4 @@ figures/**
 old/**
 results/**
 specifici/**
+__pycache__/**
