@@ -1,5 +1,6 @@
 from XRDXRFutils import (Phase, DatabaseXRD, DataXRF, DataXRD, SpectraXRD, FastSpectraXRD, GaussNewton,
-    PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch, GammaSearch_Secondary, GammaMap_Secondary, GammaMap_Partial)
+    PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch, GammaSearch_Secondary,
+    GammaMap_Secondary, GammaMap_Partial)
 
 from os.path import isdir
 from os import makedirs, remove
@@ -15,8 +16,8 @@ from numpy import (linspace, concatenate, sqrt, log, sin, cos, pi, deg2rad, hist
 
 from pandas import DataFrame, read_csv
 
-from matplotlib.pyplot import (sca, show, fill_between, legend, imshow, subplots, plot, xlim, ylim,
-    xlabel, ylabel, cm, title, scatter, colorbar, figure, vlines, savefig, get_cmap, hist)
+from matplotlib.pyplot import (show, close, sca, fill_between, legend, imshow, subplots, plot,
+    xlim, ylim, xlabel, ylabel, cm, title, scatter, colorbar, figure, vlines, savefig, get_cmap, hist)
 from matplotlib import rcParams
 from matplotlib.ticker import FuncFormatter, ScalarFormatter
 from matplotlib.markers import MarkerStyle
