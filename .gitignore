@@ -8,3 +8,4 @@ old/**
 results/**
 specifici/**
 __pycache__/**
+*.dat
