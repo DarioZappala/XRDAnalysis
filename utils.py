@@ -126,5 +126,5 @@ def phases_from_file(filename, database):
 
 
 rcParams.update({
-'image.origin': 'lower'
+    'image.origin': 'lower'
 })
