@@ -25,3 +25,6 @@ sigma = 0.2          # sigma used in the peaks of synthetic diffraction patterns
 ### Experimental setting ###
 angle_incidence = 10.5 # angle between the incident beam and the plane of the painting
 channel_distance = 50 # distance in microns between two adjacent channels of the detector
+
+### Reading XRF ###
+xrf_axes_flip = [1] # which axes to flip when reading XRF data
