@@ -5,14 +5,20 @@ from XRDXRFutils import (Phase, DatabaseXRD, DataXRF, DataXRD, SpectraXRD, FastS
 from os.path import isdir
 from os import makedirs, remove
 from shutil import rmtree
+from pathlib import Path
+from multiprocessing import Pool
 
+import re
 import h5py
+from glob import glob
+
 from sklearn.linear_model import LinearRegression
+from sklearn.cluster import KMeans, MiniBatchKMeans
 from scipy.optimize import curve_fit, least_squares
 
-from numpy import (linspace, concatenate, sqrt, log, sin, cos, pi, deg2rad, histogram, array, unravel_index, savetxt,
-    isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, arange, empty, newaxis, stack, clip,
-    quantile, ones, zeros, absolute)
+from numpy import (linspace, concatenate, append, sqrt, log, sin, cos, pi, deg2rad, histogram, array,
+    unravel_index, savetxt, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, arange,
+    empty, newaxis, stack, clip, quantile, ones, zeros, absolute)
 
 from pandas import DataFrame, read_csv, concat
 
@@ -25,14 +31,8 @@ from matplotlib.colors import BoundaryNorm
 from matplotlib.lines import Line2D
 from matplotlib.cm import get_cmap
 
-from sklearn.cluster import KMeans, MiniBatchKMeans
-
-from multiprocessing import Pool
-
-from glob import glob
 from PIL import Image
 
-from pathlib import Path
 
 
 def f_linear(x, a, b):
