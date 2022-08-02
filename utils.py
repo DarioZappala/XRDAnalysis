@@ -2,7 +2,7 @@ from XRDXRFutils import (Phase, DatabaseXRD, DataXRF, DataXRD, SpectraXRD, FastS
     PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch, GammaSearch_Secondary,
     GammaMap_Secondary, GammaMap_Partial)
 
-from os.path import isdir
+from os.path import isdir, exists
 from os import makedirs, remove
 from shutil import rmtree
 from pathlib import Path
