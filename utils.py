@@ -1,6 +1,6 @@
 from XRDXRFutils import (Phase, DatabaseXRD, DataXRF, DataXRD, SpectraXRD, FastSpectraXRD, GaussNewton,
     PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch, GammaSearch_Secondary,
-    GammaMap_Secondary, GammaMap_Partial, convolve, snip)
+    GammaMap_Secondary, GammaMap_Partial, convolve, convolve3d, snip)
 
 from os.path import isdir, exists
 from os import makedirs, remove
@@ -124,6 +124,10 @@ def phases_from_file(filename, database):
 
     print('Loaded phases: ' + ', '.join([p.label for p in phases]))
     return phases
+
+
+def is_element_in_formula(element, formula):
+    return re.search(element + '[\d\s]|' + element + '$', formula)
 
 
 rcParams.update({
