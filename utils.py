@@ -1,6 +1,6 @@
 from XRDXRFutils import (Phase, DatabaseXRD, DataXRF, DataXRD, SpectraXRD, FastSpectraXRD, GaussNewton,
     PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch, GammaSearch_Secondary,
-    GammaMap_Secondary, GammaMap_Partial)
+    GammaMap_Secondary, GammaMap_Partial, convolve, snip)
 
 from os.path import isdir, exists
 from os import makedirs, remove
@@ -11,16 +11,17 @@ from multiprocessing import Pool
 import re
 import h5py
 from glob import glob
+from math import ceil
+
+from numpy import (linspace, concatenate, append, sqrt, log, sin, cos, pi, deg2rad, histogram, array,
+    unravel_index, savetxt, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, maximum,
+    arange, empty, newaxis, stack, clip, quantile, ones, zeros, absolute)
+
+from pandas import DataFrame, read_csv, concat
 
 from sklearn.linear_model import LinearRegression
 from sklearn.cluster import KMeans, MiniBatchKMeans
 from scipy.optimize import curve_fit, least_squares
-
-from numpy import (linspace, concatenate, append, sqrt, log, sin, cos, pi, deg2rad, histogram, array,
-    unravel_index, savetxt, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, arange,
-    empty, newaxis, stack, clip, quantile, ones, zeros, absolute)
-
-from pandas import DataFrame, read_csv, concat
 
 from matplotlib.pyplot import (show, close, sca, fill_between, legend, imshow, subplots, plot,
     xlim, ylim, xlabel, ylabel, cm, title, scatter, colorbar, figure, vlines, savefig, get_cmap, hist)
