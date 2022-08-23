@@ -15,7 +15,7 @@ from math import ceil
 
 from numpy import (linspace, concatenate, append, sqrt, log, sin, cos, pi, deg2rad, histogram, array,
     unravel_index, savetxt, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, maximum,
-    arange, empty, newaxis, stack, clip, quantile, ones, zeros, absolute)
+    arange, empty, newaxis, stack, clip, quantile, nanquantile, ones, zeros, absolute)
 
 from pandas import DataFrame, read_csv, concat
 
