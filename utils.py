@@ -114,7 +114,7 @@ def phases_from_file(filename, database):
     
     for i in range(df.shape[0]):
         name = df.iloc[i][0]
-        index_sample = df.iloc[i][1]
+        index_sample = df.iloc[i][2]
         if name in database.keys():
             phase = database[name][index_sample]
             phase.label_set = f'{name} {index_sample}'
