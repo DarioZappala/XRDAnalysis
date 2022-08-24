@@ -1,11 +1,9 @@
 .DS_Store
 .ipynb_checkpoints/**
 altro/**
-databaseEXP/**
 documents/**
-figures/**
 old/**
-results/**
+output/**
 specifici/**
 __pycache__/**
 *.dat
