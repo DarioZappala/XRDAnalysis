@@ -27,4 +27,4 @@ angle_incidence = 10.5 # angle between the incident beam and the plane of the pa
 channel_distance = 50 # distance in microns between two adjacent channels of the detector
 
 ### Reading XRF ###
-xrf_axes_flip = [1] # which axes to flip when reading XRF data
+xrf_axes_flip = [1] # which axes to flip when reading XRF data (0: vertical, 1: horizontal)
