@@ -3,7 +3,7 @@ path_shared = '../../shared/'
 
 ### Input ###
 path_scan = path_shared + 'dataXRDXRF/MunchMuseum/M491/'
-path_xrd = path_scan + 'ProfiloXRD/'          # XRD scan 
+path_xrd = path_scan + 'ProfiloXRD/'          # XRD scan
 path_xrf = path_scan + 'ProfiloXRF/labels/'   # XRF scan
 path_photo = path_scan + 'ProfiloFoto/'       # photo of the scanned section
 path_zmap = path_shared + 'VenereBZPosition/'
@@ -19,7 +19,7 @@ path_database_exp = subfolder_output + 'databaseEXP/' # experimental phases
 min_theta = 20
 max_theta = 53
 min_intensity = 0.1  # among the tabulated peaks, selects only the ones above this threshold of intensity (scale between 0 and 1)
-first_n_peaks = 5 # selects the first n most intense peaks (if None, leaves all the peaks)
+first_n_peaks = 5    # selects the first n most intense peaks (if None, leaves all the peaks)
 sigma = 0.2          # sigma used in the peaks of synthetic diffraction patterns
 
 ### Experimental setting ###

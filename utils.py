@@ -1,6 +1,6 @@
-from XRDXRFutils import (Phase, DatabaseXRD, DataXRF, DataXRD, SpectraXRD, FastSpectraXRD, GaussNewton,
-    PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch, GammaSearch_Secondary,
-    GammaMap_Secondary, GammaMap_Partial, convolve, convolve3d, snip)
+from XRDXRFutils import (Phase, DatabaseXRD, Calibration, DataXRF, DataXRD, SpectraXRD, FastSpectraXRD,
+    GaussNewton, PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch,
+    GammaSearch_Secondary, GammaMap_Secondary, GammaMap_Partial, convolve, convolve3d, snip)
 
 from os.path import isdir, exists
 from os import makedirs, remove
@@ -15,7 +15,8 @@ from math import ceil
 
 from numpy import (linspace, concatenate, append, sqrt, log, sin, cos, pi, deg2rad, histogram, array,
     unravel_index, savetxt, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, maximum,
-    arange, empty, newaxis, stack, clip, quantile, nanquantile, ones, zeros, absolute, rot90)
+    minimum, arange, empty, newaxis, stack, clip, quantile, nanquantile, ones, zeros, absolute, rot90,
+    asarray, loadtxt)
 
 from pandas import DataFrame, read_csv, concat
 
@@ -127,7 +128,10 @@ def phases_from_file(filename, database):
 
 
 def is_element_in_formula(element, formula):
-    return re.search(element + '[\d\s]|' + element + '$', formula)
+    if element == '':
+        return False
+    else:
+        return re.search(element + '[\d\s]|' + element + '$', formula)
 
 
 rcParams.update({
