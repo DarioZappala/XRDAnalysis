@@ -3,10 +3,15 @@ path_shared = '../../shared/'
 
 ### Input ###
 path_scan = path_shared + 'dataXRDXRF/MunchMuseum/M491/'
-path_xrd = path_scan + 'ProfiloXRD/'          # XRD scan
-path_xrf = path_scan + 'ProfiloXRF/labels/'   # XRF scan
-path_photo = path_scan + 'ProfiloFoto/'       # photo of the scanned section
+
+path_xrd = path_scan + 'ProfiloXRD/'          # XRD
 path_zmap = path_shared + 'VenereBZPosition/'
+
+path_xrf_images = path_scan + 'ProfiloXRF/labels/'   # XRF
+path_xrf_spectra = path_scan + 'ProfiloXRF/'
+
+path_photo = path_scan + 'ProfiloFoto/'       # photo of the scanned section
+
 path_database = path_shared + 'Database/'     # tabulated phases
 
 ### Output ###
