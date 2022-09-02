@@ -134,6 +134,25 @@ def is_element_in_formula(element, formula):
         return re.search(element + '[\d\s]|' + element + '$', formula)
 
 
+def read_point_xrf(filename):
+    is_found = False
+
+    with open(filename, 'r') as o_file_xrf:
+        while not is_found:
+            line = o_file_xrf.readline()
+            if line == '$DATA:\n':
+                is_found = True
+            if not line:
+                break
+        if is_found:
+            line = o_file_xrf.readline()
+            lines = o_file_xrf.readlines()
+            return asarray([int(n) for l in lines for n in re.sub(' +', ' ', l).split()])
+        else:
+            print(f'Unknown data format in file \'{file_xrf}\'')
+            return None
+
+
 rcParams.update({
     'image.origin': 'lower'
 })
