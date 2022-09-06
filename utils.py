@@ -134,6 +134,13 @@ def is_element_in_formula(element, formula):
         return re.search(element + '[\d\s]|' + element + '$', formula)
 
 
+def clean_phase_name(name):
+    name_clean = name
+    for c in ['/', '\\']:
+        name_clean = name_clean.replace(c, '_')
+    return name_clean
+    
+
 def read_point_xrf(filename):
     is_found = False
 
