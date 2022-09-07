@@ -7,7 +7,7 @@ path_scan = path_shared + 'dataXRDXRF/MunchMuseum/M491/'
 path_xrd = path_scan + 'ProfiloXRD/'          # XRD
 path_zmap = path_shared + 'VenereBZPosition/'
 
-path_xrf_elements = path_scan + 'ProfiloXRF/labels/'   # XRF
+path_xrf_images = path_scan + 'ProfiloXRF/labels/'   # XRF
 path_xrf_spectra = path_scan + 'ProfiloXRF/'
 
 path_photo = path_scan + 'ProfiloFoto/'       # photo of the scanned section
