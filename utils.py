@@ -1,5 +1,5 @@
-from XRDXRFutils import (Phase, DatabaseXRD, Calibration, DataXRF, DataXRD, SpectraXRD, FastSpectraXRD,
-    GaussNewton, PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch,
+from XRDXRFutils import (Phase, DatabaseXRD, Calibration, DataXRF, DataXRD, SpectraXRF, SpectraXRD,
+    FastSpectraXRD, GaussNewton, PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch,
     GammaSearch_Secondary, GammaMap_Secondary, GammaMap_Partial, convolve, convolve3d, snip)
 
 from os.path import isdir, exists
@@ -53,7 +53,7 @@ def fmt(x, pos):
 
 def read_raw_XRD(path_xrd, filename_scanning = 'Scanning_Parameters.txt', filename_calibration = 'calibration.ini', filename_h5 = 'xrd.h5'):
     return (DataXRD().read_params(path_xrd + filename_scanning).read(path_xrd)
-            .calibrate_from_file(path_xrd + filename_calibration).remove_background().save_h5(path_xrd + filename_h5))
+            .calibrate_from_file(path_xrd + filename_calibration).background_elimination_and_smoothing().save_h5(path_xrd + filename_h5))
 
 
 def correct_point(experimental_phases, idx_phase, gm, x, y):
@@ -139,25 +139,13 @@ def clean_phase_name(name):
     for c in ['/', '\\']:
         name_clean = name_clean.replace(c, '_')
     return name_clean
-    
 
-def read_point_xrf(filename):
-    is_found = False
-
-    with open(filename, 'r') as o_file_xrf:
-        while not is_found:
-            line = o_file_xrf.readline()
-            if line == '$DATA:\n':
-                is_found = True
-            if not line:
-                break
-        if is_found:
-            line = o_file_xrf.readline()
-            lines = o_file_xrf.readlines()
-            return asarray([int(n) for l in lines for n in re.sub(' +', ' ', l).split()])
-        else:
-            print(f'Unknown data format in file \'{file_xrf}\'')
-            return None
+def shorten_string(s, length_max):
+    if len(s) > length_max:
+        s_short = s[:(length_max - 3)] + '...'
+    else:
+        s_short = s
+    return s_short
 
 
 rcParams.update({
