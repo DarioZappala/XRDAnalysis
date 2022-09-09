@@ -23,6 +23,7 @@ from pandas import DataFrame, read_csv, concat
 from sklearn.linear_model import LinearRegression
 from sklearn.cluster import KMeans, MiniBatchKMeans
 from scipy.optimize import curve_fit, least_squares
+from scipy.signal import find_peaks
 
 from matplotlib.pyplot import (show, close, sca, fill_between, legend, imshow, subplots, plot,
     xlim, ylim, xlabel, ylabel, cm, title, scatter, colorbar, figure, vlines, savefig, get_cmap, hist)
