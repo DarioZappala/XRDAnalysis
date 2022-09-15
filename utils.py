@@ -16,7 +16,7 @@ from math import ceil
 from numpy import (linspace, concatenate, append, sqrt, log, sin, cos, pi, deg2rad, histogram, array,
     unravel_index, savetxt, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, maximum,
     minimum, arange, empty, newaxis, stack, clip, quantile, nanquantile, ones, zeros, absolute, rot90,
-    asarray, loadtxt)
+    asarray, loadtxt, where, argwhere)
 
 from pandas import DataFrame, read_csv, concat
 
@@ -54,7 +54,7 @@ def fmt(x, pos):
 
 def read_raw_XRD(path_xrd, filename_scanning = 'Scanning_Parameters.txt', filename_calibration = 'calibration.ini', filename_h5 = 'xrd.h5'):
     return (DataXRD().read_params(path_xrd + filename_scanning).read(path_xrd)
-            .calibrate_from_file(path_xrd + filename_calibration).background_elimination_and_smoothing().save_h5(path_xrd + filename_h5))
+            .calibrate_from_file(path_xrd + filename_calibration).background_elimination_and_smoothing(avoid_negative = True).save_h5(path_xrd + filename_h5))
 
 
 def correct_point(experimental_phases, idx_phase, gm, x, y):
