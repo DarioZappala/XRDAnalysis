@@ -1,6 +1,6 @@
-from XRDXRFutils import (Phase, DatabaseXRD, Calibration, DataXRF, DataXRD, SpectraXRF, SpectraXRD,
-    FastSpectraXRD, GaussNewton, PhaseList, ChiSearch, GammaMap, ChiMap, Phase, PhaseList, GammaSearch,
-    GammaSearch_Secondary, GammaMap_Secondary, GammaMap_Partial, convolve, convolve3d, snip)
+from XRDXRFutils import (DatabaseXRD, Phase, PhaseList, Calibration, DataXRF, DataXRD, SpectraXRF,
+    SpectraXRD, FastSpectraXRD, GaussNewton, GammaSearch, GammaMap, GammaSearch_Secondary,
+    GammaMap_Secondary, ChiSearch, ChiMap, convolve, convolve3d, snip)
 
 from os.path import isdir, exists
 from os import makedirs, remove
@@ -14,7 +14,7 @@ from glob import glob
 from math import ceil
 
 from numpy import (linspace, concatenate, append, sqrt, log, sin, cos, pi, deg2rad, histogram, array,
-    unravel_index, savetxt, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, maximum,
+    unravel_index, savetxt, nan, isnan, flip, sum, average, amax, nanmax, nanmin, nanmean, nanargmax, maximum,
     minimum, arange, empty, newaxis, stack, clip, quantile, nanquantile, ones, zeros, absolute, rot90,
     asarray, loadtxt, where, argwhere)
 

@@ -7,12 +7,12 @@ path_scan = path_shared + 'dataXRDXRF/MunchMuseum/M491/'
 path_xrd = path_scan + 'ProfiloXRD/'          # XRD scan
 path_zmap = path_shared + 'VenereBZPosition/'
 
-path_xrf_images = path_scan + 'ProfiloXRF/labels/'   # XRF elements
-path_xrf_spectra = path_scan + 'ProfiloXRF/'         # XRF scan (put None if there isn't any XRF scan to be read)
+path_xrf_elements = path_scan + 'ProfiloXRF/labels/'   # XRF elements
+path_xrf_spectra = path_scan + 'ProfiloXRF/'           # XRF scan (put None if there isn't any XRF scan to be read)
 
 path_photo = path_scan + 'ProfiloFoto/'       # photo of the scanned section
 
-path_database = path_shared + 'Database/'     # tabulated phases
+list_path_database = [path_shared + 'Database/']   # tabulated phases
 
 ### Output ###
 subfolder_output = 'output/MunchMuseum/M491/Profilo/'
@@ -32,5 +32,11 @@ sigma = 0.2          # sigma used in the peaks of synthetic diffraction patterns
 angle_incidence = 10.5 # angle between the incident beam and the plane of the painting
 channel_distance = 50 # distance in microns between two adjacent channels of the detector
 
-### Reading XRF ###
+### Data processing at reading time ###
 xrf_axes_flip = [1] # which axes to flip when reading XRF data (0: vertical, 1: horizontal)
+
+# Rotating data clockwise: number of steps of 90 degrees
+steps_rotation_photo = 0
+steps_rotation_xrf_elements = 0
+steps_rotation_xrf_spectra = 2
+steps_rotation_xrd = 0
