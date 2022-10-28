@@ -5,6 +5,7 @@ CalibFinale/**
 documents/**
 old/**
 output/**
+Poisson/**
 specifici/**
 __pycache__/**
 *.dat

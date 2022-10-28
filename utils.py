@@ -53,8 +53,14 @@ def fmt(x, pos):
 
 
 def read_raw_XRD(path_xrd, filename_scanning = 'Scanning_Parameters.txt', filename_calibration = 'calibration.ini', filename_h5 = 'xrd.h5'):
-    return (DataXRD().read_params(path_xrd + filename_scanning).read(path_xrd)
-            .calibrate_from_file(path_xrd + filename_calibration).background_elimination_and_smoothing(avoid_negative = True).save_h5(path_xrd + filename_h5))
+    return (
+        DataXRD()
+        .read_params(path_xrd + filename_scanning)
+        .read(path_xrd)
+        .calibrate_from_file(path_xrd + filename_calibration)
+        .remove_background()
+        .save_h5(path_xrd + filename_h5)
+    )
 
 
 def correct_point(experimental_phases, idx_phase, gm, x, y):
@@ -119,7 +125,7 @@ def phases_from_file(filename, database):
         index_sample = df.iloc[i][2]
         if name in database.keys():
             phase = database[name][index_sample]
-            phase.label_set = f'{name} {index_sample}'
+            phase.set_label(f'{name} {index_sample}')
             phases.append(phase)
         else:
             print(f'Could not find phase \'{name}\' in the database.')
