@@ -8,5 +8,6 @@ old/**
 output/**
 Poisson/**
 specifici/**
+SpotResults/**
 __pycache__/**
 *.dat
